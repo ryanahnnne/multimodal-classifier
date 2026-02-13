@@ -1,0 +1,9 @@
+# Data configuration
+base_dir: ${oc.env:DATA_DIR,/data}
+project_name: "AI_TAG"
+task_name: "AP"
+class_name: "PS"
+train_csv: "${data.base_dir}/${data.project_name}/${data.task_name}/${data.class_name}/output/train.csv"
+val_csv: "${data.base_dir}/${data.project_name}/${data.task_name}/${data.class_name}/output/val.csv"
+test_csv: "${data.base_dir}/${data.project_name}/${data.task_name}/${data.class_name}/output/test.csv"
+num_workers: 8

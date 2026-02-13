@@ -1,0 +1,69 @@
+# Training configuration
+experiment_name: "baseline"
+output_dir: "./outputs"
+
+# Modality: "multimodal" (vis + text), "vision_only", "text_only"
+modality: "multimodal"
+
+# Backbone freezing & LoRA
+freeze_backbone: true
+finetune_layers: 0  # 0=all frozen, N>0=unfreeze top N layers, -1=unfreeze all
+lora:
+  enabled: false
+  rank: 16
+  alpha: 8
+  target_layers: 6
+  dropout: 0.05
+output_feature_type: "patch"  # "patch" or "pooled"
+
+# Classification head
+head_hidden_dim: 512
+head_dropout: 0.1
+
+# Feature projection (for vision-text fusion)
+# Set dim > 0 to project both vision and text features to same dimension before concat
+projection:
+  dim: 512  # 0 = disabled (direct concat), e.g., 512 = project both to 512-dim
+  dropout: 0.1
+  normalize: false  # L2 normalize after projection (false = let network learn scales)
+
+# Optimization
+epochs: 50
+batch_size: 16
+learning_rate: 1.0e-4
+lora_lr: 1.0e-5           # null = same as learning_rate, e.g., 2.0e-4
+backbone_lr: null          # null = same as learning_rate; for full fine-tuning, e.g., 1.0e-5
+weight_decay: 0.01
+warmup_ratio: 0.1
+
+# Loss: "bce" or "focal"
+loss_type: "focal"
+focal:
+  gamma: 2.0
+  alpha: 0.55
+label_smoothing: 0.00  # 0.0 = disabled
+
+# Scheduler: "cosine" or "cosine_warmup"
+scheduler_type: "cosine_warmup"
+
+# Checkpoint
+save_ckpt: false
+
+# Early stopping
+early_stopping:
+  patience: 3
+  metric: "val_auroc"
+
+# Reproducibility
+seed: 42
+
+# Device & precision
+device: "cuda"
+mixed_precision: true
+use_data_parallel: false  # Disabled by default
+
+# Logging
+logger:
+  type: "wandb"  # "wandb", "tensorboard", or "none"
+  project: "multimodal-classification-model"  # wandb project name
+  log_interval: ${train.batch_size}  # Batch loss logging interval (0 to disable batch logging)

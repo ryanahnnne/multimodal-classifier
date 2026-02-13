@@ -1,0 +1,29 @@
+# @package _global_
+# V8 Vision-only ft=all, mean pooling
+defaults:
+  - override /vision_encoder: siglip2_so400m
+  - override /text_encoder: labse
+  - override /pooling: attention
+  - override /fusion: gated
+  - override /augmentation: none
+
+train:
+  experiment_name: "directFT_lightning_base"
+  modality: "multimodal"
+  freeze_backbone: true
+  finetune_layers: -1
+  lora:
+    enabled: true
+  output_feature_type: "patch"
+  head_dropout: 0.3
+  projection:
+    normalize: true
+  learning_rate: 1.0e-3
+  backbone_lr: 1.0e-5
+  batch_size: 64
+  label_smoothing: 0.05
+  scheduler_type: "cosine_warmup"
+  warmup_ratio: 0.1
+  epochs: 50
+  early_stopping:
+    patience: 5

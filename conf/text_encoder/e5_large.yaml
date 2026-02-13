@@ -1,0 +1,8 @@
+# Multilingual-E5-Large text encoder
+_target_: model.text.sentence_transformer.SentenceTransformerEncoder
+enabled: true
+model_name: "intfloat/multilingual-e5-large"
+output_dim: 1024
+normalize_embeddings: true
+use_no_text_embedding: true
+query_prefix: "query: "

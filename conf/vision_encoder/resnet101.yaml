@@ -1,0 +1,6 @@
+# ResNet101 vision backbone
+_target_: model.vision.resnet.ResNetBackbone
+name: "resnet101"
+pretrained: true
+image_size: 224
+hidden_dim: 2048

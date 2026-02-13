@@ -1,0 +1,6 @@
+# SigLIP2 NaFlex SO400M vision backbone
+_target_: model.vision.siglip2_naflex.SigLIP2NaFlexBackbone
+name: "google/siglip2-so400m-patch16-naflex"
+image_size: 384
+hidden_dim: 1152
+patch_size: 16

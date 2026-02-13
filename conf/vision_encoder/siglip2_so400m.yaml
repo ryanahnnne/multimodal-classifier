@@ -1,0 +1,6 @@
+# SigLIP2 SO400M vision backbone
+_target_: model.vision.siglip2.SigLIP2Backbone
+name: "google/siglip2-so400m-patch14-384"
+image_size: 384
+hidden_dim: 1152
+

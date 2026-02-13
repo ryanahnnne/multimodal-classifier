@@ -1,0 +1,8 @@
+# LaBSE text encoder (multilingual)
+_target_: model.text.sentence_transformer.SentenceTransformerEncoder
+enabled: true
+model_name: "sentence-transformers/LaBSE"
+output_dim: 768
+normalize_embeddings: true
+use_no_text_embedding: true
+query_prefix: ""

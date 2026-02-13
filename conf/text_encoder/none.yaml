@@ -1,0 +1,3 @@
+# No text encoder (visual only)
+enabled: false
+output_dim: 0

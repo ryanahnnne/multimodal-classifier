@@ -1,0 +1,6 @@
+# Gated Multimodal Unit (GMU) fusion
+# Learns per-sample, per-dimension modality weighting via sigmoid gate
+# Recommended for multimodal (visual + text) classification
+type: gated
+projection_dim: 512
+dropout: 0.1

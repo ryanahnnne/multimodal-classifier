@@ -1,0 +1,37 @@
+services:
+  torch-dev:
+    build:
+      context: .
+      args:
+        USERNAME: ${USERNAME:-user}
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
+    container_name: ${USERNAME:-user}_torch_env
+    ipc: host
+    tty: true
+    stdin_open: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - .:/workspace
+      - ${DATA_DIR:-./data}:/data
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    working_dir: /workspace
+    environment:
+      - TZ=Asia/Seoul
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility,display
+      - DISPLAY=${DISPLAY:-}
+      - XAUTHORITY=${XAUTHORITY:-}
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      stack:
+        soft: 67108864
+        hard: 67108864

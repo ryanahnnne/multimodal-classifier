@@ -1,0 +1,6 @@
+# EfficientNetV2-L vision backbone
+_target_: model.vision.efficientnet.EfficientNetBackbone
+name: "tf_efficientnetv2_l"
+pretrained: true
+image_size: 384
+hidden_dim: 1280

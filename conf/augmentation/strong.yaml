@@ -1,0 +1,18 @@
+# Strong augmentation for better generalization
+enabled: true
+horizontal_flip_p: 0.0  # No flip to preserve text
+rotation_degrees: 5.0
+perspective:
+  distortion: 0.1
+  p: 0.3
+color_jitter:
+  brightness: 0.3
+  contrast: 0.3
+  saturation: 0.2
+  hue: 0.1
+grayscale_p: 0.05
+gaussian_blur:
+  p: 0.1
+  kernel_size: 3
+  sigma_min: 0.1
+  sigma_max: 0.5

@@ -1,0 +1,6 @@
+# ViT-Base vision backbone
+_target_: model.vision.vit.ViTBackbone
+name: "vit_large_patch16_384"
+pretrained: true
+image_size: 384
+hidden_dim: 768

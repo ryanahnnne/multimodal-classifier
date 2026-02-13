@@ -1,0 +1,8 @@
+# BGE-M3 text encoder (multilingual)
+_target_: model.text.bge_m3.BGEM3Encoder
+enabled: true
+model_name: "BAAI/bge-m3"
+output_dim: 1024
+max_length: 512
+normalize_embeddings: true
+use_no_text_embedding: true

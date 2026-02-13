@@ -1,0 +1,6 @@
+# Simple concatenation fusion (baseline)
+# L2 normalize each modality then concatenate
+# Set projection_dim > 0 to project both to same dim before concat
+type: concat
+projection_dim: 0
+dropout: 0.1

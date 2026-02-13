@@ -1,0 +1,18 @@
+# Weak augmentation (preserves OCR readability)
+enabled: true
+horizontal_flip_p: 0.0  # No flip to preserve text
+rotation_degrees: 3.0
+perspective:
+  distortion: 0.05
+  p: 0.2
+color_jitter:
+  brightness: 0.2
+  contrast: 0.2
+  saturation: 0.15
+  hue: 0.05
+grayscale_p: 0.0
+gaussian_blur:
+  p: 0.0
+  kernel_size: 3
+  sigma_min: 0.1
+  sigma_max: 0.5

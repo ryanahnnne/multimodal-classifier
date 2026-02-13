@@ -1,0 +1,4 @@
+# Attention pooling (learnable query)
+_target_: model.pooling.AttentionPooling
+type: "attention"
+num_heads: 8

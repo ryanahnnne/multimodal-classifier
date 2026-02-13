@@ -1,0 +1,3 @@
+# Mean pooling
+_target_: model.pooling.MeanPooling
+type: "mean"

@@ -1,0 +1,6 @@
+# SigLIP2 NaFlex Base vision backbone
+_target_: model.vision.siglip2_naflex.SigLIP2NaFlexBackbone
+name: "google/siglip2-base-patch16-naflex"
+image_size: 384
+hidden_dim: 768
+patch_size: 16

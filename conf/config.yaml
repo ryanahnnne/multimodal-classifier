@@ -1,0 +1,29 @@
+# ==============================================================
+# Ad Image Binary Classifier - Main Hydra Configuration
+# ==============================================================
+# Usage:
+#   python train.py                           # defaults
+#   python train.py vision_encoder=resnet50       # change visual backbone
+#   python train.py text_encoder=none         # disable text encoder
+#   python train.py pooling=attention         # change pooling
+#   python train.py train.batch_size=32       # override training param
+#   python train.py -m vision_encoder=siglip2_so400m,resnet50 # multirun sweep
+# ==============================================================
+
+defaults:
+  - data: default
+  - vision_encoder: siglip2_so400m
+  - text_encoder: labse
+  - pooling: attention
+  - fusion: gated
+  - train: default
+  - augmentation: none
+  - _self_
+
+hydra:
+  run:
+    dir: ${train.output_dir}/${train.experiment_name}/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: outputs/multirun/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${hydra.job.num}
+

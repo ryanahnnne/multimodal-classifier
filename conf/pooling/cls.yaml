@@ -1,0 +1,3 @@
+# CLS token pooling
+_target_: model.pooling.CLSPooling
+type: "cls"

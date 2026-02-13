@@ -1,0 +1,6 @@
+# VGG16 vision backbone
+_target_: model.vision.vgg.VGGBackbone
+name: "vgg16"
+pretrained: true
+image_size: 224
+hidden_dim: 512
